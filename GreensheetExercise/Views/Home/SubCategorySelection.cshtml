@@ -1,0 +1,29 @@
+﻿@model GreensheetExercise.Models.SubCategoryForm
+
+@{
+    ViewBag.Title = "SubCategoriesForm";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Select a Category</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        @Html.ValidationSummary(true)
+        @Html.EditorForModel()
+        @Html.ValidationMessageFor(model => model.SelectedCategoryID)
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Submit" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to Main Categories", "Index")
+</div>
+

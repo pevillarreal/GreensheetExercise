@@ -1,0 +1,32 @@
+﻿@model IEnumerable<GreensheetExercise.Models.Category>
+
+@{
+    ViewBag.Title = "Main Categories";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Main Categories</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Title)
+        </th>        
+        <th>Logo</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.ActionLink(item.Title, "SubCategorySelection", new { parentCategoryId = item.Id })               
+            </td>
+            <td>
+                <img src="@item.LogoUrl" />
+            </td>
+        </tr>
+    }
+
+</table>
+
+

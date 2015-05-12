@@ -1,0 +1,35 @@
+﻿@model GreensheetExercise.Models.SubCategoriesModel
+
+@{
+    ViewBag.Title = "Main Categories";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>@Model.ParentCategory.Title &gt; @Model.SelectedCategory.Title</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            Title
+        </th>
+        <th></th>
+    </tr>
+
+    @for (int i = 0; i < Model.ChildCategories.Count(); i++)
+    {
+        <tr>
+            <td>
+                @Model.ChildCategories[i].Title
+                <img src="@Model.ChildCategories[i].LogoUrl" />
+            </td>
+           
+        </tr>
+    }
+
+</table>
+
+<div>
+    @Html.ActionLink("Back to Main Categories", "Index")
+</div>
+
+
